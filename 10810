@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main()
+{
+    int n,m;
+    scanf("%d %d", &n, &m);
+    
+    int bag[n];
+    
+    for(int d = 0 ; d < n ; d++) {
+        bag[d]=0;
+    }
+    
+    int i,j,k;
+    
+    
+    
+    for(int a = 0 ; a < m ; a++) {
+        scanf("%d %d %d", &i, &j, &k);
+        for(int b = i ; b <= j ; b++) {
+            bag[b - 1] = k;
+        }
+    }
+    
+    for(int c = 0; c < n ; c++){
+        printf("%d ", bag[c]);
+    }
+    
+    return 0;
+}

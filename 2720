@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()//  1$=100
+{
+    int t;
+    scanf("%d", &t);
+    int i;
+    int gsr;
+    int q, d, n, p;
+    for(i=0;i<t;i++){
+        scanf("%d", &gsr);
+        q=gsr/25;
+        d=(gsr%25)/10;
+        n=((gsr%25)%10)/5;
+        p=((gsr%25)%10)%5;
+        printf("%d %d %d %d\n", q, d, n, p);
+    }
+    return 0;
+}

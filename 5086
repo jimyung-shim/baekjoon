@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main()
+{
+    int n1, n2;
+    for(;;){
+        scanf("%d %d", &n1, &n2);
+        if(n1==0&&n2==0)break;
+        if(n2%n1==0)printf("factor\n");
+        if(n1%n2==0)printf("multiple\n");
+        if(n2%n1!=0&&n1%n2!=0)printf("neither\n");
+    }
+    return 0;
+}

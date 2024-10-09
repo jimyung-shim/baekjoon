@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+#define MAX 100
+int stack[MAX] = { 0 };
+int top = -1;
+
+void push(int x) {
+	if (top < MAX - 1) {
+		top++;
+		stack[top] = x;
+	}
+}
+
+void pop() {
+	if (top >= 0) {
+		printf("%d\n", stack[top]);
+		top--;
+	}
+	else if (top == -1)printf("-1\n");
+}
+
+int main()
+{
+	int n;
+	scanf_s("%d", &n);
+
+	for (int i = 0; i < n; i++) {
+		char order[20];
+		scanf_s("%s", order, sizeof(order));
+		
+		if (strcmp(order, "push") == 0) {
+			int ps;
+			scanf_s("%d", &ps);
+			push(ps);
+		}
+		if (strcmp(order, "pop") == 0)pop();
+		if (strcmp(order, "size") == 0)printf("%d\n", top + 1);
+		if (strcmp(order, "empty") == 0) {
+			if (top == -1)printf("1\n");
+			else printf("0\n");
+		}
+		if (strcmp(order, "top") == 0) {
+			if (top == -1)printf("-1\n");
+			else printf("%d\n", stack[top]);
+		}
+	}
+	return 0;
+}

@@ -1,0 +1,38 @@
+#include<stdio.h>
+#define MAX 100
+int stack[MAX] = { 0 };
+int top = -1;
+
+void push(int x) {
+	if (top < MAX - 1) {
+		top++;
+		stack[top] = x;
+	}
+}
+void pop() {
+	if (top >= 0) {
+		top--;
+	}
+}
+
+int main()
+{
+	int k;
+	scanf_s("%d", &k);
+
+	for (int i = 0; i < k; i++) {
+		int n;
+		scanf_s("%d", &n);
+		if (n != 0)push(n);
+		else pop();
+	}
+
+	int sum = 0;
+	for (int i = 0; i <= top; i++) {
+		sum += stack[i];
+	}
+
+	printf("%d\n", sum);
+	
+	return 0;
+}

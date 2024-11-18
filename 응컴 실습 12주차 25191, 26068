@@ -1,0 +1,65 @@
+// 25191번
+
+#include<stdio.h>
+int main()
+{
+	int n;
+	scanf_s("%d", &n);
+
+	int a, b;
+	scanf_s("%d %d", &a, &b);
+
+	int able_chicken = 0;
+	for (int i = 0; i < n; i++) {
+		if (a - 2 >= 0) {
+			a -= 2;
+			able_chicken++;
+		}
+		else if (b - 1 >= 0) {
+			b--;
+			able_chicken++;
+		}
+		
+	}
+	printf("%d", able_chicken);
+	return 0;
+}
+
+// 26068번
+
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+	int n;
+	scanf_s("%d", &n);
+
+	int will_use = 0;
+
+	for (int i = 0; i < n; i++) {
+		char dday[10] = { NULL };
+		int day=0;
+		scanf_s("%s", dday, 6);
+
+		for (int j = 0; j < strlen(dday); j++) {
+			if (isdigit(dday[j]) && isdigit(dday[j + 1]) && isdigit(dday[j + 2])) {
+				day = (dday[j] - '0') * 100 + (dday[j + 1] - '0') * 10 + dday[j + 2] - '0';
+				break;
+			}
+			else if (isdigit(dday[j]) && isdigit(dday[j + 1])) {
+				day = (dday[j] - '0') * 10 + dday[j + 1] - '0';
+				break;
+			}
+			else if (isdigit(dday[j])) {
+				day = dday[j] - '0';
+				break;
+			}
+		}
+		if (day <= 90)will_use++;
+	}
+
+	printf("%d", will_use);
+
+	return 0;
+}

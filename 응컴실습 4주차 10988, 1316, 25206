@@ -25,3 +25,41 @@ int main()
 
 	return 0;
 }
+
+// 1316번
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	
+	int groupwords = n;
+	
+	for (int i = 0; i < n; i++) {
+		char string[100];
+		scanf("%s", string);
+
+		char letters[100];
+		int lt = 0;
+
+		int notgroupword = 0;
+
+		for (int j = 0; j < strlen(string); j++) {
+			int flag = 1;
+			for (int k = 0; k < lt; k++) {
+				if (letters[k] == string[j])flag = 0;
+			}
+			if (flag)letters[lt++] = string[j];
+			if (flag == 0 && letters[lt - 1] != string[j]) {
+				notgroupword = 1;
+			}
+		}
+		if (notgroupword)groupwords--;;
+	}
+	printf("%d", groupwords);
+
+	return 0;
+}

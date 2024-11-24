@@ -1,0 +1,77 @@
+// 10773번
+
+#include<stdio.h>
+#define MAX 100000
+int stack[MAX];
+int top = -1;
+
+void push(int x) {
+	if (top < MAX - 1) {
+		stack[++top] = x;
+	}
+}
+
+void pop() {
+	if (top > -1) {
+		top--;
+	}
+}
+
+int main()
+{
+	int k;
+	scanf_s("%d", &k);
+
+	for (int i=0; i < k; i++) {
+		int a;
+		scanf_s("%d", &a);
+
+		if (a == 0) {
+			pop();
+		}
+
+		else push(a);
+	}
+
+	int sum = 0;
+	for (int j = 0; j <= top; j++) {
+		sum += stack[j];
+	}
+
+	printf("%d", sum);
+	return 0;
+}
+
+// 9012번
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	for (int i = 0; i < n; i++) {
+		char list[1000];
+		int lt = 0;
+
+		char string[100];
+		scanf("%s", string);
+
+		for (int j = 0; j < strlen(string); j++) {
+			if (string[j] == '(') {
+				list[lt++] = string[j];
+			}
+			else if (string[j] == ')' && list[lt - 1] == '(') {
+				lt--;
+			}
+			else if (string[j] == ')') {
+				list[lt++] = string[j];
+			}
+		}
+
+		lt ? printf("NO\n") : printf("YES\n");
+	}
+	return 0;
+}

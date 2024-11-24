@@ -1,3 +1,39 @@
+// 1153번
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int prime(int x) {
+	if (x < 2)return 0;
+	for (int i = 2; i < x; i++) {
+		if (x % i == 0)return 0;
+	}
+	return 1;
+}
+int main()
+{
+	int n;
+	scanf("%d", &n);
+
+	for (int a = 2; a <= n; a++) {
+		if (prime(a)) {
+			for (int b = 2; b <= n; b++) {
+				if (prime(b)) {
+					for (int c = 2; c <= n; c++) {
+						if (prime(c)) {
+							for (int d = 2; d <= n; d++) {
+								if (prime(d) && a + b + c + d == n) {
+									printf("%d %d %d %d", a, b, c, d);
+									return 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 // 1929번
 #include<stdio.h>
 int main()
